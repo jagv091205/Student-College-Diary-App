@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import ttk
 from PIL import Image, ImageTk
 import datetime
 
@@ -15,6 +16,42 @@ def get_greeting():
         return "Good Afternoon,"
     else:
         return "Good Evening,"
+
+def next_image(event):
+    global current_image_index
+    if current_image_index < len(images) - 1:
+        current_image_index += 1
+        show_image(current_image_index)
+
+def prev_image(event):
+    global current_image_index
+    if current_image_index > 0:
+        current_image_index -= 1
+        show_image(current_image_index)
+
+def show_image(index):
+    canvas.itemconfig(image_item, image=images[index])
+    canvas.config(scrollregion=canvas.bbox("all"))
+
+def create_label(frame, text, color, font, row, column):
+    label = tk.Label(frame, text=text, fg=color, font=font, bg="white")
+    label.grid(row=row, column=column, rowspan=2, columnspan=3)
+    return label
+
+def create_label_header(frame, text, color, font, row, column, columnspan):
+    label = tk.Label(frame, text=text, fg=color, font=font, bg="white")
+    label.grid(row=row, column=column, columnspan=columnspan, rowspan=3)
+    return label
+
+def create_frame(root):
+    frame = tk.Frame(root, bg="white", bd=0, relief="raised")
+    frame.pack(padx=20, pady=20)
+    return frame
+
+def create_separator(frame, row, column):
+    separator = ttk.Separator(frame, orient="vertical")
+    separator.grid(row=row, column=column, rowspan=2, padx=(10), sticky="ns")
+    return separator
 
 # Create the main window
 root = tk.Tk()
@@ -73,13 +110,16 @@ canvas = tk.Canvas(root, bg="white", width=360, height=120)
 canvas.pack()
 
 # Add slideable image (replace the path with your image path)
-image_path = "images/image1.jpg"  # Change this to your image path
-image = Image.open(image_path)
-image = image.resize((360, 100))  # Adjust size as needed
-photo = ImageTk.PhotoImage(image)
+image_paths = ["images/image1.jpg", "images/image2.png", "images/image3.jpg", "images/image4.jpg"]
+images = []
+for path in image_paths:
+    image = Image.open(path)
+    image = image.resize((360, 100))  # Adjust size as needed
+    images.append(ImageTk.PhotoImage(image))
 
-frame_id = canvas.create_image(0, 0, anchor="nw", image=photo)
-canvas.itemconfig(frame_id, tags=("image",))
+current_image_index = 0
+image_item = canvas.create_image(0, 0, anchor="nw", image=images[current_image_index])
+canvas.itemconfig(image_item, tags=("image",))
 
 # Text below the slideable image
 college_text = "Ramnarian Ruia Autonomous College"
@@ -131,7 +171,7 @@ button_frame.pack(fill="both", expand=True, padx=5, pady=5)
 
 # Create a canvas for vertical scrolling
 canvas = tk.Canvas(button_frame, bg="#e6e6e6")
-canvas.pack(side="left", fill="both", expand=True)
+canvas.pack(side="left", fill="both", expand=True)  # Expand both horizontally and vertically
 
 # Add scrollbar for vertical scrolling
 scrollbar = tk.Scrollbar(button_frame, orient="vertical", command=canvas.yview)
@@ -139,6 +179,8 @@ scrollbar.pack(side="right", fill="y")
 
 # Create a frame to hold the buttons
 button_frame_inner = tk.Frame(canvas, bg="#e6e6e6")
+
+# Add the frame to the canvas
 canvas.create_window((0, 0), window=button_frame_inner, anchor="nw")
 
 # Leave space for 4x4 small image buttons
@@ -160,7 +202,13 @@ for i in range(14):
 
 # Update the scroll region
 button_frame_inner.update_idletasks()
-canvas.config(scrollregion=canvas.bbox("all"))
+canvas.config(yscrollcommand=scrollbar.set, scrollregion=canvas.bbox("all"))
+
+# Add horizontal scrollbar to canvas for slideable images
+hbar = tk.Scrollbar(root, orient="horizontal")
+hbar.pack(side="bottom", fill="x")
+hbar.config(command=canvas.xview)
+canvas.config(xscrollcommand=hbar.set)
 
 # Create footer frame
 footer_frame = tk.Frame(root, bg="white", height=100, width=360)
@@ -225,6 +273,20 @@ id_card_icon = ImageTk.PhotoImage(id_card_image)
 id_card_button = tk.Button(footer_frame, image=id_card_icon, text="ID Card", compound="top", bg="white", bd=0)
 id_card_button.image = id_card_icon
 id_card_button.place(relx=0.8, rely=0.5, anchor="center")
+
+# Create the section for Outstanding Fees
+outstanding_fees_frame = create_frame(root)
+
+# Create the labels for Outstanding Fees
+title_label = create_label_header(outstanding_fees_frame, "Outstanding Fees", None, ("Arial", 13), 0, 1, 7)
+
+paid_label = create_label(outstanding_fees_frame, "₹0", "green", ("Arial Bold", 10), 4, 1)
+paid_text = create_label(outstanding_fees_frame, " Paid Fees ", None, ("Arial", 8), 6, 1)
+
+separator = create_separator(outstanding_fees_frame, 5, 4)
+
+balance_label = create_label(outstanding_fees_frame, "₹0", "red", ("Arial Bold", 10), 4, 5)
+balance_text = create_label(outstanding_fees_frame, "Balance Fees", None, ("Arial", 8), 6, 5)
 
 # Run the Tkinter event loop
 root.mainloop()
