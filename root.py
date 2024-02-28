@@ -30,7 +30,7 @@ def open_profile_page():
 
     # Load the image
     # Replace with the actual path to your image
-    image_path = "C:\\Users\\acer\\Pictures\\Screenshots\\Screenshot 2024-02-14 195726.png"
+    image_path = "C:\\Users\\acer\\Pictures\\Screenshots\\Screenshot 2024-02-14 195726.jpg"
     image = Image.open(image_path)
     image = image.resize((100, 100))  # Adjust the size as needed
     photo = ImageTk.PhotoImage(image)
@@ -42,37 +42,37 @@ def open_profile_page():
     canvas.image = photo
 
     # Create buttons with icons and text
-    icon1 = ImageTk.PhotoImage(Image.open("C:\\Users\\acer\\OneDrive\\Desktop\\1st.png").resize((30, 30)))
+    icon1 = ImageTk.PhotoImage(Image.open("C:\\Users\\acer\\OneDrive\\Desktop\\1st.jpg").resize((30, 30)))
     button1 = Button(profile_page, text="Personal Details", image=icon1, compound="left", command=open_personal_details)
     button1.image = icon1
     button1.place(relx=0.85, rely=0.3, anchor="e")
 
-    icon2 = ImageTk.PhotoImage(Image.open("C:\\Users\\acer\\OneDrive\\Desktop\\2nd.png").resize((30, 30)))
+    icon2 = ImageTk.PhotoImage(Image.open("C:\\Users\\acer\\OneDrive\\Desktop\\2nd.jpg").resize((30, 30)))
     button2 = Button(profile_page, text="Contact Details", image=icon2, compound="left", command=open_contact_details)
     button2.image = icon2
     button2.place(relx=0.85, rely=0.4, anchor="e")
 
-    icon3 = ImageTk.PhotoImage(Image.open("C:\\Users\\acer\\OneDrive\\Desktop\\3rd.png").resize((30, 30)))
+    icon3 = ImageTk.PhotoImage(Image.open("C:\\Users\\acer\\OneDrive\\Desktop\\3rd.jpg").resize((30, 30)))
     button3 = Button(profile_page, text="Postal Details", image=icon3, compound="left", command=open_postal_details)
     button3.image = icon3
     button3.place(relx=0.85, rely=0.5, anchor="e")
 
-    icon4 = ImageTk.PhotoImage(Image.open("C:\\Users\\acer\\OneDrive\\Desktop\\4th.png").resize((30, 30)))
+    icon4 = ImageTk.PhotoImage(Image.open("C:\\Users\\acer\\OneDrive\\Desktop\\4th.jpg").resize((30, 30)))
     button4 = Button(profile_page, text="Change Password", image=icon4, compound="left", command=open_change_password)
     button4.image = icon4
     button4.place(relx=0.85, rely=0.6, anchor="e")
 
-    icon5 = ImageTk.PhotoImage(Image.open("C:\\Users\\acer\\OneDrive\\Desktop\\5th.png").resize((30, 30)))
+    icon5 = ImageTk.PhotoImage(Image.open("C:\\Users\\acer\\OneDrive\\Desktop\\5th.jpg").resize((30, 30)))
     button5 = Button(profile_page, text="Share App", image=icon5, compound="left", command=open_share_app)
     button5.image = icon5
     button5.place(relx=0.85, rely=0.7, anchor="e")
 
-    icon6 = ImageTk.PhotoImage(Image.open("C:\\Users\\acer\\OneDrive\\Desktop\\6th.png").resize((30, 30)))
+    icon6 = ImageTk.PhotoImage(Image.open("C:\\Users\\acer\\OneDrive\\Desktop\\6th.jpg").resize((30, 30)))
     button6 = Button(profile_page, text="Rate App", image=icon6, compound="left", command=open_rate_app)
     button6.image = icon6
     button6.place(relx=0.85, rely=0.8, anchor="e")
 
-    icon7 = ImageTk.PhotoImage(Image.open("C:\\Users\\acer\\OneDrive\\Desktop\\7th.png").resize((30, 30)))
+    icon7 = ImageTk.PhotoImage(Image.open("C:\\Users\\acer\\OneDrive\\Desktop\\7th.jpg").resize((30, 30)))
     button7 = Button(profile_page, text="Log Out", image=icon7, compound="left", command=open_log_out)
     button7.image = icon7
     button7.place(relx=0.85, rely=0.9, anchor="e")
@@ -95,7 +95,7 @@ def open_personal_details():
    
 
     # Load the personal details image
-    personal_details_image_path = "C:\\Users\\acer\\OneDrive\\Desktop\\New folder\\python\\personal_detail.png"  # Replace with the actual path
+    personal_details_image_path = "C:\\Users\\acer\\OneDrive\\Desktop\\New folder\\python\\personal_detail.jpg"  # Replace with the actual path
     personal_details_image = Image.open(personal_details_image_path)
     personal_details_image = personal_details_image.resize((500, 700))  # Adjust the size as needed
     personal_details_photo = ImageTk.PhotoImage(personal_details_image)
@@ -493,7 +493,7 @@ canvas = tk.Canvas(root, bg="white", width=600, height=120)
 canvas.pack()
 
 # Add slideable image (replace the path with your image path)
-image_paths = ["images/image1.jpg", "images/image2.png", "images/image3.jpg", "images/image4.jpg"]
+image_paths = ["images/img1.jpg", "images/img2.jpg"]
 images = []
 for path in image_paths:
     image = Image.open(path)
@@ -570,7 +570,7 @@ canvas.create_window((0, 0), window=button_frame_inner, anchor="nw")
 # Create 14 small image buttons with text below them
 for i in range(14):
     # Load small image for button
-    small_button_image = Image.open("images/button1.png")  # Replace with your image path
+    small_button_image = Image.open("images/button1.jpg")  # Replace with your image path
     small_button_image = small_button_image.resize((40, 40))  # Resize the image
     small_button_photo = ImageTk.PhotoImage(small_button_image)
 
@@ -624,7 +624,7 @@ house_button.bind("<Enter>", on_enter)
 house_button.bind("<Leave>", on_leave)
 
 #Draw id card button
-id_card_image = Image.open("images/id_card.png")  # Replace with your ID card image
+id_card_image = Image.open("images/id_card.jpg")  # Replace with your ID card image
 id_card_image = id_card_image.resize((30, 30))
 id_card_icon = ImageTk.PhotoImage(id_card_image)
 id_card_button = tk.Button(footer_frame, image=id_card_icon, text="ID Card", compound="top", bg="white", bd=0, command=open_id_card_page)
@@ -632,7 +632,7 @@ id_card_button.image = id_card_icon
 id_card_button.place(relx=0.8, rely=0.5, anchor="center")
 
 # Draw calendar button
-calendar_image = Image.open("images/calendar.png")  # Replace with your calendar image
+calendar_image = Image.open("images/calendar.jpg")  # Replace with your calendar image
 calendar_image = calendar_image.resize((30, 30))
 calendar_icon = ImageTk.PhotoImage(calendar_image)
 calendar_button = tk.Button(footer_frame, image=calendar_icon, text="Calendar", compound="top", bg="white", bd=0, command=open_calendar)
@@ -641,7 +641,7 @@ calendar_button.place(relx=0.2, rely=0.5, anchor="center")
 calendar_button.config(width=40)
 
 # Draw notification button
-notification_image = Image.open("images/notification.png")  # Replace with your notification image
+notification_image = Image.open("images/notification.jpg")  # Replace with your notification image
 notification_image = notification_image.resize((30, 30))
 notification_icon = ImageTk.PhotoImage(notification_image)
 notification_button = tk.Button(footer_frame, image=notification_icon, text="Notification", compound="top", bg="white", bd=0, command=open_notification)
@@ -649,7 +649,7 @@ notification_button.image = notification_icon
 notification_button.place(relx=0.4, rely=0.5, anchor="center")
 
 # Draw profile button
-profile_image = Image.open("images/profile.png")  # Replace with your profile image
+profile_image = Image.open("images/profile.jpg")  # Replace with your profile image
 profile_image = profile_image.resize((30, 30))
 profile_icon = ImageTk.PhotoImage(profile_image)
 profile_button = tk.Button(footer_frame, image=profile_icon, text="Profile", compound="top", bg="white", bd=0, command=open_profile_page)
