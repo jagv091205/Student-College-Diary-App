@@ -1,0 +1,27 @@
+# Create the main window
+root = tk.Tk()
+root.title("Ruia Student Diary")
+root.geometry("600x800")
+root.minsize(600, 800)
+root.maxsize(600, 800)
+root.withdraw()  # Hide main window until splash screen closes
+
+# Create a splash screen window
+splash = tk.Toplevel(root)
+splash.overrideredirect(True)  # Remove window decorations
+splash.geometry("600x800")
+splash.configure(bg="maroon")
+
+# Load image
+image_path = "C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\clg_logo.jpg"  # Change this to your image path
+image = Image.open(image_path)
+image = image.resize((400, 533))  # Resizing without ANTIALIAS for simplicity
+photo = ImageTk.PhotoImage(image)
+
+# Display image on splash screen
+label = tk.Label(splash, image=photo, bg="maroon")
+label.image = photo  # keep a reference
+label.place(relx=0.5, rely=0.5, anchor="center")
+
+# Close splash screen after 2 seconds
+splash.after(2000, close_splash)

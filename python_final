@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import ttk
+from tkinter import Label, ttk
 from PIL import Image, ImageTk
 import datetime
 from tkcalendar import Calendar
@@ -30,7 +30,7 @@ def open_profile_page():
 
     # Load the image
     # Replace with the actual path to your image
-    image_path = "images\button1.jpg"
+    image_path = "C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\dummy_profile.jpg"
     image = Image.open(image_path)
     image = image.resize((100, 100))  # Adjust the size as needed
     photo = ImageTk.PhotoImage(image)
@@ -42,37 +42,37 @@ def open_profile_page():
     canvas.image = photo
 
     # Create buttons with icons and text
-    icon1 = ImageTk.PhotoImage(Image.open("").resize((30, 30)))
+    icon1 = ImageTk.PhotoImage(Image.open("C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\icon_1.jpg").resize((30, 30)))
     button1 = Button(profile_page, text="Personal Details", image=icon1, compound="left", command=open_personal_details)
     button1.image = icon1
     button1.place(relx=0.85, rely=0.3, anchor="e")
 
-    icon2 = ImageTk.PhotoImage(Image.open("C:\\Users\\acer\\OneDrive\\Desktop\\2nd.jpg").resize((30, 30)))
+    icon2 = ImageTk.PhotoImage(Image.open("C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\icon_2.jpg").resize((30, 30)))
     button2 = Button(profile_page, text="Contact Details", image=icon2, compound="left", command=open_contact_details)
     button2.image = icon2
     button2.place(relx=0.85, rely=0.4, anchor="e")
 
-    icon3 = ImageTk.PhotoImage(Image.open("C:\\Users\\acer\\OneDrive\\Desktop\\3rd.jpg").resize((30, 30)))
+    icon3 = ImageTk.PhotoImage(Image.open("C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\icon_3.jpg").resize((30, 30)))
     button3 = Button(profile_page, text="Postal Details", image=icon3, compound="left", command=open_postal_details)
     button3.image = icon3
     button3.place(relx=0.85, rely=0.5, anchor="e")
 
-    icon4 = ImageTk.PhotoImage(Image.open("C:\\Users\\acer\\OneDrive\\Desktop\\4th.jpg").resize((30, 30)))
+    icon4 = ImageTk.PhotoImage(Image.open("C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\icon_4.jpg").resize((30, 30)))
     button4 = Button(profile_page, text="Change Password", image=icon4, compound="left", command=open_change_password)
     button4.image = icon4
     button4.place(relx=0.85, rely=0.6, anchor="e")
 
-    icon5 = ImageTk.PhotoImage(Image.open("C:\\Users\\acer\\OneDrive\\Desktop\\5th.jpg").resize((30, 30)))
+    icon5 = ImageTk.PhotoImage(Image.open("C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\icon_5.jpg").resize((30, 30)))
     button5 = Button(profile_page, text="Share App", image=icon5, compound="left", command=open_share_app)
     button5.image = icon5
     button5.place(relx=0.85, rely=0.7, anchor="e")
 
-    icon6 = ImageTk.PhotoImage(Image.open("C:\\Users\\acer\\OneDrive\\Desktop\\6th.jpg").resize((30, 30)))
+    icon6 = ImageTk.PhotoImage(Image.open("C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\icon_6.jpg").resize((30, 30)))
     button6 = Button(profile_page, text="Rate App", image=icon6, compound="left", command=open_rate_app)
     button6.image = icon6
     button6.place(relx=0.85, rely=0.8, anchor="e")
 
-    icon7 = ImageTk.PhotoImage(Image.open("C:\\Users\\acer\\OneDrive\\Desktop\\7th.jpg").resize((30, 30)))
+    icon7 = ImageTk.PhotoImage(Image.open("C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\icon_7.jpg").resize((30, 30)))
     button7 = Button(profile_page, text="Log Out", image=icon7, compound="left", command=open_log_out)
     button7.image = icon7
     button7.place(relx=0.85, rely=0.9, anchor="e")
@@ -95,7 +95,7 @@ def open_personal_details():
 
 
     # Load the personal details image
-    personal_details_image_path = "C:\\Users\\acer\\OneDrive\\Desktop\\New folder\\python\\personal_detail.jpg"  # Replace with the actual path
+    personal_details_image_path = "C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\personal_details.jpg"  # Replace with the actual path
     personal_details_image = Image.open(personal_details_image_path)
     personal_details_image = personal_details_image.resize((500, 700))  # Adjust the size as needed
     personal_details_photo = ImageTk.PhotoImage(personal_details_image)
@@ -122,7 +122,7 @@ def open_contact_details():
     contact_details_window.maxsize(600, 800)
 
     # Load the contact details image
-    contact_details_image_path = "C:\\Users\\acer\\OneDrive\\Desktop\\New folder\\python\\contact_details.jpeg"  # Replace with the actual path
+    contact_details_image_path = "C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\contact_details.jpg"  # Replace with the actual path
     contact_details_image = Image.open(contact_details_image_path)
     contact_details_image = contact_details_image.resize((500, 700))  # Adjust the size as needed
     contact_details_photo = ImageTk.PhotoImage(contact_details_image)
@@ -148,7 +148,7 @@ def open_postal_details():
     postal_details_window.maxsize(600, 800)
 
     # Load the postal details image
-    postal_details_image_path = "C:\\Users\\acer\\OneDrive\\Desktop\\New folder\\python\\postal_details.jpeg"  # Replace with the actual path
+    postal_details_image_path = "C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\postal_deatils.jpg"  # Replace with the actual path
     postal_details_image = Image.open(postal_details_image_path)
     postal_details_image = postal_details_image.resize((500, 700))  # Adjust the size as needed
     postal_details_photo = ImageTk.PhotoImage(postal_details_image)
@@ -175,7 +175,7 @@ def open_change_password():
     change_password_window.maxsize(600, 800)
 
     # Load the change password image
-    change_password_image_path = "C:\\Users\\acer\\OneDrive\\Desktop\\New folder\\python\\password.jpeg"  # Replace with the actual path
+    change_password_image_path = "C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\change_password.jpg"  # Replace with the actual path
     change_password_image = Image.open(change_password_image_path)
     change_password_image = change_password_image.resize((500, 700))  # Adjust the size as needed
     change_password_photo = ImageTk.PhotoImage(change_password_image)
@@ -202,7 +202,7 @@ def open_share_app():
     share_app_window.maxsize(600, 800)
 
     # Load the share app image
-    share_app_image_path = "C:\\Users\\acer\\OneDrive\\Desktop\\New folder\\python\\share_app.jpeg"  # Replace with the actual path
+    share_app_image_path = "C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\share_app.jpg"  # Replace with the actual path
     share_app_image = Image.open(share_app_image_path)
     share_app_image = share_app_image.resize((500, 700))  # Adjust the size as needed
     share_app_photo = ImageTk.PhotoImage(share_app_image)
@@ -228,7 +228,7 @@ def open_rate_app():
     rate_app_window.maxsize(600, 800)
 
     # Load the rate app image
-    rate_app_image_path = "C:\\Users\\acer\\OneDrive\\Desktop\\New folder\\python\\rate_app.jpeg"  # Replace with the actual path
+    rate_app_image_path = "C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\rate_app.jpg"  # Replace with the actual path
     rate_app_image = Image.open(rate_app_image_path)
     rate_app_image = rate_app_image.resize((500, 700))  # Adjust the size as needed
     rate_app_photo = ImageTk.PhotoImage(rate_app_image)
@@ -255,7 +255,7 @@ def open_log_out():
     log_out_window.maxsize(600, 800)
 
     # Load the log out image
-    log_out_image_path = "C:\\Users\\acer\\OneDrive\\Desktop\\New folder\\python\\logout.jpeg"  # Replace with the actual path
+    log_out_image_path = "C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\log_out.jpg"  # Replace with the actual path
     log_out_image = Image.open(log_out_image_path)
     log_out_image = log_out_image.resize((500, 700))  # Adjust the size as needed
     log_out_photo = ImageTk.PhotoImage(log_out_image)
@@ -291,7 +291,7 @@ def open_id_card_page():
     id_card_page.maxsize(600, 800)
 
     # Load the ID card image
-    id_card_image_path = "C:\\Users\\acer\\OneDrive\\Desktop\\id_image.jpeg"  # Replace with your ID card image path
+    id_card_image_path = "C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\window_id.jpg"  # Replace with your ID card image path
     id_card_image = Image.open(id_card_image_path)
     id_card_image = id_card_image.resize((500, 700))  # Adjust the size as needed
     id_card_photo = ImageTk.PhotoImage(id_card_image)
@@ -319,7 +319,7 @@ def open_notification():
     notification_window.maxsize(600, 800)
 
     # Load the notification image
-    notification_image_path = "C:\\Users\\acer\\OneDrive\\Desktop\\notification_image.jpeg"  # Replace with your image path
+    notification_image_path = "C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\window_notification.jpg"  # Replace with your image path
     notification_image = Image.open(notification_image_path)
     notification_image = notification_image.resize((500, 700))  # Adjust the size as needed
     notification_photo = ImageTk.PhotoImage(notification_image)
@@ -1009,6 +1009,18 @@ def prev_image(event=None):
 root = tk.Tk()
 root.title("Slideable Image")
 
+# Function to close the splash screen
+def close_splash():
+    splash.destroy()
+    root.deiconify()  # Show the main window after splash screen closes
+
+# import tkinter as tk
+# from PIL import Image, ImageTk
+
+# Function to close the splash screen
+def close_splash():
+    splash.destroy()
+    root.deiconify()  # Show the main window after splash screen closes
 
 # Create the main window
 root = tk.Tk()
@@ -1018,22 +1030,27 @@ root.minsize(600, 800)
 root.maxsize(600, 800)
 root.withdraw()  # Hide main window until splash screen closes
 
+
 # Create a splash screen window
 splash = tk.Toplevel(root)
 splash.overrideredirect(True)  # Remove window decorations
 splash.geometry("600x800")
 splash.configure(bg="maroon")
 
+# C:\Users\Admin\Documents\GitHub\Student-College-Diary-App\images\clg_logo.jpg
+
 # Load image
-image_path = "images/college_logo.jpg"  # Change this to your image path
+# image_path = "clg_logo.jpg"  # Change this to your image path
+image_path = tk.PhotoImage('C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\clg_logo.jpg')
 image = Image.open(image_path)
 image = image.resize((400, 533))  # Resizing without ANTIALIAS for simplicity
 photo = ImageTk.PhotoImage(image)
 
 # Display image on splash screen
-label = tk.Label(splash, image=photo, bg="maroon")
-label.image = photo  # keep a reference
+Label.image = photo  # Keep a reference to the image object
+label = tk.Label(splash, bg="maroon", image=photo)
 label.place(relx=0.5, rely=0.5, anchor="center")
+
 
 # Close splash screen after 2 seconds
 splash.after(2000, close_splash)
@@ -1055,7 +1072,7 @@ name_label = tk.Label(header, text=student_name, fg="white", bg="maroon", font=(
 name_label.pack(side="left", padx=10, anchor="w")
 
 # Load small image on the right side
-small_image_path = "images/college_logo.jpg"  # Change this to your small image path
+small_image_path = "C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\clg_logo.jpg"  # Change this to your small image path
 small_image = Image.open(small_image_path)
 small_image = small_image.resize((50, 50))  # Resizing the image
 small_photo = ImageTk.PhotoImage(small_image)
@@ -1069,7 +1086,7 @@ canvas = tk.Canvas(root, bg="white", width=600, height=120)
 canvas.pack()
 
 # Add slideable image (replace the path with your image path)
-image_paths = ["images/img1.jpg", "images/img2.jpg"]
+image_paths = ["C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\img1.jpg", "C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\img2.jpg"]
 images = [Image.open(path) for path in image_paths]
 images = [image.resize((600, 100)) for image in images]
 images = [ImageTk.PhotoImage(image) for image in images]
@@ -1129,23 +1146,23 @@ overall_bar.grid(row=3, column=1, padx=(5, 10), pady=5)
 # rectangle2.pack(fill="both", expand=True)
 
 # Create 14 small image buttons without text below them
-create_button1("images/button1.jpg", 0, 0, open_attendance_window)
-create_button1("images/button2.jpg", 0, 1, open_schedule_window)
-create_button1("images/button3.jpg", 0, 2, open_onlineclass_window)
-create_button1("images/button4.jpg", 0, 3, open_examtimetable_window)
+create_button1("C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\button1.jpg", 0, 0, open_attendance_window)
+create_button1("C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\button2.jpg", 0, 1, open_schedule_window)
+create_button1("C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\button3.jpg", 0, 2, open_onlineclass_window)
+create_button1("C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\button4.jpg", 0, 3, open_examtimetable_window)
 
-create_button1("images/button5.jpg", 1, 0, open_examhallticket_window)
-create_button1("images/button6.jpg", 1, 1, open_result_window)
-create_button1("images/button7.jpg", 1, 2, open_internalmark_window)
-create_button1("images/button8.jpg", 1, 3, open_FeesPaid_window)
+create_button1("C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\button5.jpg", 1, 0, open_examhallticket_window)
+create_button1("C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\button6.jpg", 1, 1, open_result_window)
+create_button1("C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\button7.jpg", 1, 2, open_internalmark_window)
+create_button1("C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\button8.jpg", 1, 3, open_FeesPaid_window)
 
-create_button1("images/button9.jpg", 2, 0, open_registersubject_window)
-create_button1("images/button10.jpg", 2, 1, open_CareerWorkshop_window)
-create_button1("images/button11.jpg", 2, 2, open_Certificate_window)
-create_button1("images/button12.jpg", 2, 3, open_message_window)
+create_button1("C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\button9.jpg", 2, 0, open_registersubject_window)
+create_button1("C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\button10.jpg", 2, 1, open_CareerWorkshop_window)
+create_button1("C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\button11.jpg", 2, 2, open_Certificate_window)
+create_button1("C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\button12.jpg", 2, 3, open_message_window)
 
-create_button1("images/button13.jpg", 3, 0, open_Railway_Concession_Apply_window)
-create_button1("images/button14.jpg", 3, 1, open_ITLE_window)
+create_button1("C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\button13.jpg", 3, 0, open_Railway_Concession_Apply_window)
+create_button1("C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\button14.jpg", 3, 1, open_ITLE_window)
 
 # Create the main window
 root = tk.Tk()
@@ -1196,7 +1213,7 @@ maroon_button.place(relx=0.5, rely=0.5, anchor="center")
 
 # Draw house symbol button
 # Draw maroon circular button in the void with house icon in the center
-house_image = Image.open("images/house.jpg")  # Replace with your house symbol image
+house_image = Image.open("C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\house.jpg")  # Replace with your house symbol image
 house_image = house_image.resize((40, 40))  # Adjust the size of the house icon
 house_icon = ImageTk.PhotoImage(house_image)
 
@@ -1213,7 +1230,7 @@ house_button.bind("<Enter>", on_enter)
 house_button.bind("<Leave>", on_leave)
 
 #Draw id card button
-id_card_image = Image.open("images/id_card.jpg")  # Replace with your ID card image
+id_card_image = Image.open("C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\house.jpg")  # Replace with your ID card image
 id_card_image = id_card_image.resize((30, 30))
 id_card_icon = ImageTk.PhotoImage(id_card_image)
 id_card_button = tk.Button(footer_frame, image=id_card_icon, text="ID Card", compound="top", bg="white", bd=0, command=open_id_card_page)
@@ -1221,7 +1238,7 @@ id_card_button.image = id_card_icon
 id_card_button.place(relx=0.8, rely=0.5, anchor="center")
 
 # Draw calendar button
-calendar_image = Image.open("images/calendar.jpg")  # Replace with your calendar image
+calendar_image = Image.open("C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\calendar.jpg")  # Replace with your calendar image
 calendar_image = calendar_image.resize((30, 30))
 calendar_icon = ImageTk.PhotoImage(calendar_image)
 calendar_button = tk.Button(footer_frame, image=calendar_icon, text="Calendar", compound="top", bg="white", bd=0, command=open_calendar)
@@ -1230,7 +1247,7 @@ calendar_button.place(relx=0.2, rely=0.5, anchor="center")
 calendar_button.config(width=40)
 
 # Draw notification button
-notification_image = Image.open("images/notification.jpg")  # Replace with your notification image
+notification_image = Image.open("C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\notification.jpg")  # Replace with your notification image
 notification_image = notification_image.resize((30, 30))
 notification_icon = ImageTk.PhotoImage(notification_image)
 notification_button = tk.Button(footer_frame, image=notification_icon, text="Notification", compound="top", bg="white", bd=0, command=open_notification)
@@ -1238,7 +1255,7 @@ notification_button.image = notification_icon
 notification_button.place(relx=0.4, rely=0.5, anchor="center")
 
 # Draw profile button
-profile_image = Image.open("images/profile.jpg")  # Replace with your profile image
+profile_image = Image.open("C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\profile.jpg")  # Replace with your profile image
 profile_image = profile_image.resize((30, 30))
 profile_icon = ImageTk.PhotoImage(profile_image)
 profile_button = tk.Button(footer_frame, image=profile_icon, text="Profile", compound="top", bg="white", bd=0, command=open_profile_page)

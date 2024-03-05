@@ -653,3 +653,148 @@
 # canvas.config(xscrollcommand=hbar.set)
 
 # root.mainloop()
+
+
+# import tkinter as tk
+# from PIL import Image, ImageTk
+
+# # Create a Tkinter window
+# splash = tk.Tk()
+# splash.title("Splash Screen")
+
+# # Load image
+# image_path = ""  # Change this to your image path
+# image = Image.open(image_path)
+# image = image.resize((400, 533))  # Resizing without ANTIALIAS for simplicity
+# photo = ImageTk.PhotoImage(image)
+
+# # Display image on splash screen
+# label = tk.Label(splash, image=photo, bg="maroon")
+# label.image = photo  # keep a reference
+# label.place(relx=0.5, rely=0.5, anchor="center")
+
+# # Run the Tkinter event loop
+# splash.mainloop()
+
+# from PIL import Image, ImageTk
+# import tkinter as tk
+
+# # Function to close the splash screen
+# def close_splash():
+#     splash.destroy()
+#     root.deiconify()  # Show the main window after splash screen closes
+
+# # Create the main window
+# root = tk.Tk()
+# root.title("Ruia Student Diary")
+# root.geometry("600x800")
+# root.minsize(600, 800)
+# root.maxsize(600, 800)
+# root.withdraw()  # Hide main window until splash screen closes
+
+# # Create a splash screen window
+# splash = tk.Toplevel(root)
+# splash.overrideredirect(True)  # Remove window decorations
+# splash.geometry("600x800")
+# splash.configure(bg="maroon")
+
+# # Load image
+# image_path = "C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\clg_logo.jpg"  # Change this to your image path
+# image = Image.open(image_path)
+# image = image.resize((400, 533))  # Resizing without ANTIALIAS for simplicity
+# photo = ImageTk.PhotoImage(image)
+
+# # Display image on splash screen
+# label = tk.Label(splash, image=photo, bg="maroon")
+# label.image = photo  # Keep a reference to the image object
+# label.place(relx=0.5, rely=0.5, anchor="center")
+
+# # Close splash screen after 2 seconds
+# splash.after(2000, close_splash)
+
+# root.mainloop()
+
+
+# # # Run the Tkinter event loop
+# # root.mainloop()
+
+
+# import tkinter as tk
+# from PIL import Image, ImageTk
+
+# # Create the main window
+# splash = tk.Tk()
+
+# # Load the image file
+# try:
+#     image = Image.open("C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\clg_logo.jpg")  # Replace "path_to_your_image_file.jpg" with the actual path to your image file
+# except FileNotFoundError:
+#     print("Image file not found.")
+#     splash.destroy()
+#     exit()
+
+# # Resize the image if needed
+# # image = image.resize((width, height), Image.ANTIALIAS)  # Replace "width" and "height" with your desired dimensions
+
+# # Convert the Image object into a Tkinter PhotoImage object
+# photo = ImageTk.PhotoImage(image)
+
+# # Create a label widget to display the image
+# label = tk.Label(splash, image=photo, bg="maroon")
+# label.image = photo  # Keep a reference to the image object
+# label.place(relx=0.5, rely=0.5, anchor="center")
+
+# # Run the Tkinter event loop
+# splash.mainloop()
+
+
+# import tkinter as tk
+# from PIL import Image, ImageTk
+
+# # Create the main window
+# header = tk.Tk()
+
+# # Load the small image
+# small_image_path = "C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\clg_logo.jpg"  # Change this to your small image path
+# try:
+#     small_image = Image.open(small_image_path)
+# except FileNotFoundError:
+#     print("Small image file not found.")
+#     header.destroy()
+#     exit()
+
+# # Resize the small image
+# small_image = small_image.resize((50, 50))  # Resizing the image
+
+# # Convert the small image object into a Tkinter PhotoImage object
+# small_photo = ImageTk.PhotoImage(small_image)
+
+# # Create a label widget to display the small image on the right side
+# small_image_label = tk.Label(header, image=small_photo, bg="maroon")
+# small_image_label.image = small_photo  # Keep a reference to the small image object
+# small_image_label.pack(side="right", padx=10, pady=10)
+
+# # Run the Tkinter event loop
+# header.mainloop()
+
+
+
+# import tkinter as tk
+
+# # Create the main window
+# splash = tk.Tk()
+
+# # Load the image file
+# try:
+#     photo = tk.PhotoImage(file="C:\\Users\\Admin\\Documents\\GitHub\\Student-College-Diary-App\\images\\clg_logo.jpg")  # Replace "path_to_your_image_file.gif" with the actual path to your image file
+# except tk.TclError:
+#     print("Image file not found.")
+#     splash.destroy()
+#     exit()
+
+# # Create a label widget to display the image
+# label = tk.Label(splash, image=photo, bg="maroon")
+# label.place(relx=0.5, rely=0.5, anchor="center")
+
+# # Run the Tkinter event loop
+# splash.mainloop()
