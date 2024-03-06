@@ -1047,9 +1047,8 @@ small_image = Image.open(small_image_path)
 small_image = small_image.resize((50, 50))  # Resizing the image
 small_photo = ImageTk.PhotoImage(small_image)
 
-# Create a Label widget with the small image
 small_image_label = tk.Label(header, image=small_photo, bg="maroon")
-small_image_label.image = small_photo  # Keep a reference to the image object
+small_image_label.image = small_photo  # keep a reference
 small_image_label.pack(side="right", padx=10, pady=10)
 
 # Create a canvas below the header

@@ -798,3 +798,60 @@
 
 # # Run the Tkinter event loop
 # splash.mainloop()
+
+
+## Splash screen
+# import tkinter as tk
+# from PIL import Image, ImageTk
+
+# # Load image
+# image_path = "images/clg_logo.jpg"  # Change this to your image path
+# image = Image.open(image_path)
+# image = image.resize((400, 533))  # Resizing without ANTIALIAS for simplicity
+# photo = ImageTk.PhotoImage(image)
+
+# # Create Tkinter window
+# splash = tk.Tk()
+# splash.configure(bg="maroon")
+
+# # Display image on splash screen
+# label = tk.Label(splash, image=photo, bg="maroon")
+# label.image = photo  # Keep a reference to the image object
+# label.place(relx=0.5, rely=0.5, anchor="center")
+
+# # Close splash screen after 2 seconds
+# def close_splash():
+#     splash.destroy()
+
+# splash.after(2000, close_splash)
+
+# # Start the Tkinter event loop
+# splash.mainloop()
+
+import tkinter as tk
+from PIL import Image, ImageTk
+
+def close_splash():
+    splash.destroy()
+
+# Create Tkinter window
+splash = tk.Tk()
+splash.configure(bg="maroon")
+
+# Load image
+image_path = "images/clg_logo.jpg"  # Change this to your image path
+image = Image.open(image_path)
+image = image.resize((400, 533))  # Resizing without ANTIALIAS for simplicity
+photo = ImageTk.PhotoImage(image)
+
+# Display image on splash screen
+label = tk.Label(splash, image=photo, bg="maroon")
+label.image = photo  # Keep a reference to the image object
+label.place(relx=0.5, rely=0.5, anchor="center")
+
+# Close splash screen after 2 seconds
+splash.after(2000, close_splash)
+
+# Start the Tkinter event loop
+splash.mainloop()
+
