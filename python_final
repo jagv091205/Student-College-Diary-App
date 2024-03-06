@@ -1136,8 +1136,7 @@ create_button1("images/button13.jpg", 3, 0, open_Railway_Concession_Apply_window
 create_button1("images/button14.jpg", 3, 1, open_ITLE_window)
 
 # Create the main window
-root = tk.Tk()
-root.geometry("300x200")
+
 
 # Create a frame to contain the canvas and scrollbars
 button_frame = tk.Frame(root)
