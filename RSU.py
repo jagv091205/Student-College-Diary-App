@@ -144,6 +144,7 @@ college_label.pack()
 rectangle1 = tk.Frame(
 second_frame , bg="#e6e6e6", height=120)
 rectangle1.pack(fill="x", pady=10)
+rectangle1.columnconfigure(1, weight=1)  # Adjust column 1 to expand
 
 # Text on the rectangle1
 attendance_text = "Attendance"
@@ -152,7 +153,7 @@ practical_text = "Practical"
 overall_text = "Overall"
 
 attendance_label = tk.Label(rectangle1, text=attendance_text, font=("Arial", 12, BOLD), bg="#e6e6e6", anchor="center")
-attendance_label.grid(row=0, column=1, padx=5, pady=10)
+attendance_label.grid(row=0, column=1, padx=10, pady=10, sticky="nsew")
 
 theory_label = tk.Label(rectangle1, text=theory_text, font=("Arial", 12), bg="#e6e6e6", anchor="w")
 theory_label.grid(row=1, column=0, padx=10, pady=5, sticky="w")
@@ -183,7 +184,7 @@ button_frame.pack(pady=20)
 
 # # Definecreate_button1 function
 def create_button1(image_path, row, column, command_func=None):
-    small_button_image = Image.open(image_path).resize((60, 60))
+    small_button_image = Image.open(image_path).resize((95, 95))
     small_button_photo = ImageTk.PhotoImage(small_button_image)
 
     button = tk.Button(
@@ -198,8 +199,7 @@ def create_button1(image_path, row, column, command_func=None):
 
 # Function to open the attendance window
 def open_attendance_window():
-    new_window = tk.Toplevel(
-second_frame )
+    new_window = tk.Toplevel(second_frame )
     new_window.title("Attendance")
     new_window.geometry("360x640")
 
