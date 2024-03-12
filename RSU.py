@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import Label
+from tkinter import BOTH, Frame, Label
 from PIL import Image, ImageTk
 import datetime
 from tkcalendar import Calendar
@@ -11,7 +11,7 @@ from tkinter import ttk
 def close_splash():
     splash_frame.destroy()
     root.configure(bg="white")  # Change the background to white after splash screen closes
-    create_scrollbar()
+   
 
 # Define get_greeting function if it's not defined elsewhere
 def get_greeting():
@@ -65,11 +65,30 @@ image_label.place(relx=0.5, rely=0.5, anchor="center")
 # Close splash screen after 3 seconds
 root.after(3000, close_splash)
 
+#create a main window
+
+main_frame = Frame(root)
+main_frame.pack(fill=BOTH, expand=1)
+
+my_canvas = Canvas(main_frame)
+my_canvas.pack(side="left", fill=BOTH, expand=1)
+
+my_scrollbar = ttk.Scrollbar(main_frame, orient="vertical", command=my_canvas.yview)
+my_scrollbar.pack(side="right", fill="y")
+
+my_canvas.configure(yscrollcommand=my_scrollbar.set)
+my_canvas.bind('<Configure>', lambda e: my_canvas.configure(scrollregion=my_canvas.bbox("all")))
+
+second_frame =  Frame(my_canvas)
+my_canvas.create_window((0,0), window=second_frame, anchor="nw")
+
+
 # Get greeting message
 greeting = get_greeting()
 
 # Create header
-header = tk.Frame(root, bg="maroon", height=120, width=600)
+header = tk.Frame(
+second_frame , bg="maroon", height=120, width=600)
 header.pack(fill="x")
 
 # Create label for greeting
@@ -93,7 +112,8 @@ small_image_label.image = small_photo  # Keep a reference to the image object
 small_image_label.pack(side="right", padx=10, pady=10)
 
 # Create a canvas below the header
-canvas = tk.Canvas(root, bg="white", width=600, height=120)
+canvas = tk.Canvas(
+second_frame , bg="white", width=600, height=120)
 canvas.pack()
 
 # Add slideable image
@@ -109,16 +129,20 @@ image_item = canvas.create_image(0, 0, anchor="nw", image=images[current_image_i
 canvas.tag_bind(image_item, "<Button-1>", lambda event: next_image())
 
 # Bind arrow keys for image navigation
-root.bind("<Right>", next_image)
-root.bind("<Left>", prev_image)
+
+second_frame.bind("<Right>", next_image)
+
+second_frame.bind("<Left>", prev_image)
 
 # Text below the slideable image
 college_text = "Ramnarian Ruia Autonomous College"
-college_label = tk.Label(root, text=college_text, font=("Arial", 12, BOLD), bg="white")
+college_label = tk.Label(
+second_frame , text=college_text, font=("Arial", 12, BOLD), bg="white")
 college_label.pack()
 
 # Rectangle below the college text (for Attendance, Theory, Practical, Overall)
-rectangle1 = tk.Frame(root, bg="#e6e6e6", height=120)
+rectangle1 = tk.Frame(
+second_frame , bg="#e6e6e6", height=120)
 rectangle1.pack(fill="x", pady=10)
 
 # Text on the rectangle1
@@ -153,7 +177,8 @@ overall_bar.create_rectangle(0, 0, 75, 20, fill="red")
 overall_bar.grid(row=3, column=1, padx=(5, 10), pady=5)
 
 # Create a white-colored frame to hold the buttons
-button_frame = tk.Frame(root, bg="white")
+button_frame = tk.Frame(
+second_frame , bg="white")
 button_frame.pack(pady=20)
 
 # # Definecreate_button1 function
@@ -173,7 +198,8 @@ def create_button1(image_path, row, column, command_func=None):
 
 # Function to open the attendance window
 def open_attendance_window():
-    new_window = tk.Toplevel(root)
+    new_window = tk.Toplevel(
+second_frame )
     new_window.title("Attendance")
     new_window.geometry("360x640")
 
@@ -193,7 +219,8 @@ def open_attendance_window():
     
 # Function to open the class schedule window
 def open_schedule_window():
-    new_window = tk.Toplevel(root)
+    new_window = tk.Toplevel(
+second_frame )
     new_window.title("Class Schedule")
     new_window.geometry("360x640")
 
@@ -227,7 +254,8 @@ def open_schedule_window():
 
 # Function to open online classes
 def open_onlineclass_window():
-    new_window = tk.Toplevel(root)
+    new_window = tk.Toplevel(
+second_frame )
     new_window.title("Online Classes")
     new_window.geometry("360x640")
 
@@ -258,7 +286,8 @@ def open_examtimetable_window():
     def go_back():
         new_window.destroy()
 
-    new_window = tk.Toplevel(root)
+    new_window = tk.Toplevel(
+second_frame )
     new_window.title("Exam Timetable")
     new_window.geometry("360x640")
 
@@ -317,7 +346,8 @@ def open_examhallticket_window():
     def go_back():
         new_window.destroy()
 
-    new_window = tk.Toplevel(root)
+    new_window = tk.Toplevel(
+second_frame )
     new_window.title("Exam HallTicket")
     new_window.geometry("360x640")
 
@@ -384,7 +414,8 @@ def open_examhallticket_window():
 
 # Function to open result
 def open_result_window():
-    new_window = tk.Toplevel(root)
+    new_window = tk.Toplevel(
+second_frame )
     new_window.title("Result")
     new_window.geometry("360x640")
 
@@ -421,7 +452,8 @@ def open_result_window():
 
 # Functions to open internal mark
 def open_internalmark_window():
-    new_window = tk.Toplevel(root)
+    new_window = tk.Toplevel(
+second_frame )
     new_window.title("Internal Mark")
     new_window.geometry("360x640")
 
@@ -448,7 +480,8 @@ def open_internalmark_window():
 
 # Function to open fees paid
 def open_FeesPaid_window():
-    new_window = tk.Toplevel(root)
+    new_window = tk.Toplevel(
+second_frame )
     new_window.title("Fees Paid")
     new_window.geometry("360x640")
 
@@ -486,7 +519,8 @@ def open_FeesPaid_window():
 
 # Function to open register subject
 def open_registersubject_window():
-    new_window = tk.Toplevel(root)
+    new_window = tk.Toplevel(
+second_frame )
     new_window.title("Register Subject")
     new_window.geometry("360x640")
 
@@ -525,7 +559,8 @@ def open_registersubject_window():
 
 # Function to open career workshop
 def open_CareerWorkshop_window():
-    new_window = tk.Toplevel(root)
+    new_window = tk.Toplevel(
+second_frame )
     new_window.title("Career Workshop")
     new_window.geometry("360x640")
 
@@ -539,7 +574,8 @@ def open_CareerWorkshop_window():
 
 # Function to open certificate
 def open_Certificate_window():
-    new_window = tk.Toplevel(root)
+    new_window = tk.Toplevel(
+second_frame )
     new_window.title("Certificate")
     new_window.geometry("360x640")
 
@@ -648,7 +684,8 @@ def open_Certificate_window():
     
 # Function to open message
 def open_message_window():
-    new_window = tk.Toplevel(root)
+    new_window = tk.Toplevel(
+second_frame )
     new_window.title("MESSAGE")
     new_window.geometry("360x640")
 
@@ -662,7 +699,8 @@ def open_message_window():
 
 # Function to open railway concession apply
 def open_Railway_Concession_Apply_window():
-    new_window = tk.Toplevel(root)
+    new_window = tk.Toplevel(
+second_frame )
     new_window.title("Railway Concession Apply")
     new_window.geometry("360x640")
 
@@ -680,7 +718,8 @@ def open_Railway_Concession_Apply_window():
 
 # Function to open itle
 def open_ITLE_window():
-    new_window = tk.Toplevel(root)
+    new_window = tk.Toplevel(
+second_frame )
     new_window.title("ITLE")
     new_window.geometry("360x640")
 
@@ -721,8 +760,10 @@ def create_label_header(frame, text, color, font, row, column, columnspan):
     label.grid(row=row, column=column, columnspan=columnspan, rowspan=3)
     return label
 
-def create_frame(root):
-    frame = tk.Frame(root, bg="white", bd=0, relief="raised")
+def create_frame(
+second_frame ):
+    frame = tk.Frame(
+second_frame , bg="white", bd=0, relief="raised")
     frame.pack(padx=20, pady=20)
     return frame
 
@@ -732,7 +773,8 @@ def create_separator(frame, row, column):
     return separator
 
 # Create the section for Outstanding Fees
-outstanding_fees_frame = create_frame(root)
+outstanding_fees_frame = create_frame(
+second_frame )
 
 # Create the labels for Outstanding Fees
 title_label = create_label_header(outstanding_fees_frame, "Outstanding Fees", None, ("Arial", 13), 0, 1, 7)
@@ -746,54 +788,59 @@ balance_label = create_label(outstanding_fees_frame, "₹0", "red", ("Arial Bold
 balance_text = create_label(outstanding_fees_frame, "Balance Fees", None, ("Arial", 8), 6, 5)
 
 # Function to create scrollbar
-def create_scrollbar():
-    global canvas, scrollbar
-    canvas = tk.Canvas(root, bg="white", width=580, height=760)  # Adjusted canvas size
-    canvas.pack(fill="both", expand=True)
+# def create_scrollbar():
+#     global canvas, scrollbar
+#     canvas = tk.Canvas(
+# second_frame , bg="white", width=580, height=1000)  # Adjusted canvas size
+#     canvas.pack(fill="both", expand=True)
 
-    # Add a scrollbar on the right side of the canvas
-    scrollbar = tk.Scrollbar(root, orient="vertical", command=canvas.yview)
-    scrollbar.pack(side="right", fill="y")
-    canvas.configure(yscrollcommand=scrollbar.set)
+#     # Add a scrollbar on the right side of the canvas
+#     scrollbar = tk.Scrollbar(
+# second_frame , orient="vertical", command=canvas.yview)
+#     scrollbar.pack(side="right", fill="y")
+#     canvas.configure(yscrollcommand=scrollbar.set)
     
-# Create a frame to contain the canvas and scrollbars
-button_frame = tk.Frame(root)
-button_frame.pack(fill="both", expand=True)
+# # Create a frame to contain the canvas and scrollbars
+# button_frame = tk.Frame(
+# second_frame )
+# button_frame.pack(fill="both", expand=True)
 
-# Create a canvas for vertical scrolling
-canvas = tk.Canvas(button_frame, bg="#e6e6e6", width=280, height=180)  # Adjusted canvas size
-canvas.pack(side="left", fill="both", expand=True)  # Expand both horizontally and vertically
+# # Create a canvas for vertical scrolling
+# canvas = tk.Canvas(button_frame, bg="#e6e6e6", width=280, height=180)  # Adjusted canvas size
+# canvas.pack(side="left", fill="both", expand=True)  # Expand both horizontally and vertically
 
-# Add scrollbar for vertical scrolling
-scrollbar_vertical = tk.Scrollbar(button_frame, orient="vertical", command=canvas.yview)
-scrollbar_vertical.pack(side="right", fill="y")
+# # Add scrollbar for vertical scrolling
+# scrollbar_vertical = tk.Scrollbar(button_frame, orient="vertical", command=canvas.yview)
+# scrollbar_vertical.pack(side="right", fill="y")
 
-# Link the scrollbars to the canvas
-canvas.config(yscrollcommand=scrollbar_vertical.set)
+# # Link the scrollbars to the canvas
+# canvas.config(yscrollcommand=scrollbar_vertical.set)
 
-# Create a frame to hold the content
-content_frame = tk.Frame(canvas, bg="#e6e6e6")
+# # Create a frame to hold the content
+# content_frame = tk.Frame(canvas, bg="#e6e6e6")
 
-# Add the frame to the canvas
-canvas.create_window((0, 0), window=content_frame, anchor="nw")
+# # Add the frame to the canvas
+# canvas.create_window((0, 0), window=content_frame, anchor="nw")
 
-# Update the scroll region
-content_frame.update_idletasks()
-canvas.config(scrollregion=canvas.bbox("all"))
+# # Update the scroll region
+# content_frame.update_idletasks()
+# canvas.config(scrollregion=canvas.bbox("all"))
 
-# Add horizontal scrollbar to canvas for slideable images
-hbar = tk.Scrollbar(button_frame, orient="horizontal", command=canvas.xview)
-hbar.pack(side="bottom", fill="x")
-canvas.config(xscrollcommand=hbar.set)
+# # Add horizontal scrollbar to canvas for slideable images
+# hbar = tk.Scrollbar(button_frame, orient="horizontal", command=canvas.xview)
+# hbar.pack(side="bottom", fill="x")
+# canvas.config(xscrollcommand=hbar.set)
 
 
 # Function to open the profile page
 def open_profile_page():
     # Hide the main window (root)
-    root.iconify()
+    
+    #second_frame.iconify()
 
     # Create a new window for the profile page
-    profile_page = Toplevel(root)
+    profile_page = Toplevel(
+second_frame )
     profile_page.title("Profile Page")
     profile_page.geometry("600x800")
     profile_page.minsize(600, 800)
@@ -868,7 +915,8 @@ def open_profile_page():
 
 def open_personal_details():
     # Create a new window for personal details
-    personal_details_window = Toplevel(root)
+    personal_details_window = Toplevel(
+second_frame )
     personal_details_window.title("Personal Details")
     personal_details_window.geometry("600x800")
     personal_details_window.minsize(600, 800)
@@ -896,7 +944,8 @@ def open_personal_details():
 
 def open_contact_details():
     # Create a new window for contact details
-    contact_details_window = Toplevel(root)
+    contact_details_window = Toplevel(
+second_frame )
     contact_details_window.title("Contact Details")
     contact_details_window.geometry("600x800")
     contact_details_window.minsize(600, 800)
@@ -922,7 +971,8 @@ def open_contact_details():
 
 def open_postal_details():
     # Create a new window for postal details
-    postal_details_window = Toplevel(root)
+    postal_details_window = Toplevel(
+second_frame )
     postal_details_window.title("Postal Details")
     postal_details_window.geometry("600x800")
     postal_details_window.minsize(600, 800)
@@ -949,7 +999,8 @@ def open_postal_details():
 
 def open_change_password():
     # Create a new window for change password
-    change_password_window = Toplevel(root)
+    change_password_window = Toplevel(
+second_frame )
     change_password_window.title("Change Password")
     change_password_window.geometry("600x800")
     change_password_window.minsize(600, 800)
@@ -976,7 +1027,8 @@ def open_change_password():
 
 def open_share_app():
     # Create a new window for sharing the app
-    share_app_window = Toplevel(root)
+    share_app_window = Toplevel(
+second_frame )
     share_app_window.title("Share App")
     share_app_window.geometry("600x800")
     share_app_window.minsize(600, 800)
@@ -1002,7 +1054,8 @@ def open_share_app():
 
 def open_rate_app():
     # Create a new window for rating the app
-    rate_app_window = Toplevel(root)
+    rate_app_window = Toplevel(
+second_frame )
     rate_app_window.title("Rate App")
     rate_app_window.geometry("600x800")
     rate_app_window.minsize(600, 800)
@@ -1029,7 +1082,8 @@ def open_rate_app():
 
 def open_log_out():
     # Create a new window for log out
-    log_out_window = Toplevel(root)
+    log_out_window = Toplevel(
+second_frame )
     log_out_window.title("Log Out")
     log_out_window.geometry("600x800")
     log_out_window.minsize(600, 800)
@@ -1059,13 +1113,15 @@ def open_log_out():
 def back_to_main(profile_page):
     # Close the profile page window and show the main window (root)
     profile_page.destroy()
-    root.deiconify()
+    
+    second_frame.deiconify()
 
 
 def open_id_card_page():
     
     # Create a new window for the ID card page
-    id_card_page = tk.Toplevel(root)
+    id_card_page = tk.Toplevel(
+second_frame )
     id_card_page.title("ID Card Page")
     id_card_page.geometry("600x800")
     id_card_page.minsize(600, 800)
@@ -1089,18 +1145,20 @@ def open_id_card_page():
 def back_to_main(open_id_card_page):
     # Close the profile page window and show the main window (root)
     open_id_card_page.destroy()
-    root.deiconify()
+    
+    second_frame.deiconify()
 
 def open_notification():
     # Create a new window or perform any action you desire
-    notification_window = tk.Toplevel(root)
+    notification_window = tk.Toplevel(
+second_frame )
     notification_window.title("Notifications")
     notification_window.geometry("600x800")
     notification_window.minsize(600, 800)
     notification_window.maxsize(600, 800)
 
     # Load the notification image
-    notification_image_path = "images/window_notification.jpg"  # Replace with your image path
+    notification_image_path = "images/notification.jpeg"  # Replace with your image path
     notification_image = Image.open(notification_image_path)
     notification_image = notification_image.resize((500, 700))  # Adjust the size as needed
     notification_photo = ImageTk.PhotoImage(notification_image)
@@ -1117,12 +1175,14 @@ def open_notification():
 def back_to_main(open_notification):
     # Close the profile page window and show the main window (root)
     open_notification.destroy()
-    root.deiconify()
+    
+    second_frame.deiconify()
 
 
 def open_calendar():
     # Create a new window for the calendar
-    calendar_window = tk.Toplevel(root)
+    calendar_window = tk.Toplevel(
+second_frame )
     calendar_window.title("Calendar")
     calendar_window.geometry("600x800")
     calendar_window.minsize(600, 800)
@@ -1157,10 +1217,12 @@ def open_calendar():
 def back_to_main(open_calendar):
     # Close the profile page window and show the main window (root)
     open_calendar.destroy()
-    root.deiconify()
+    
+    second_frame.deiconify()
 
 # Create footer frame
-footer_frame = tk.Frame(root, bg="grey", height=100, width=600)
+footer_frame = tk.Frame(
+second_frame , bg="grey", height=100, width=600)
 footer_frame.pack(side="bottom", fill="x")
 
 # Draw semi-circle void
