@@ -41,15 +41,15 @@ def get_greeting():
          return "Good Evening,"
 
 
-# Create Tkinter window
+# Created root window
 root = tk.Tk()
 root.title("Ruia Student Diary")
 root.geometry("600x800")  # Set window size to 600x800
 root.configure(bg="maroon")  # Set background to maroon
-# root.resizable(False, False)  # Disable resizing of the window
+# root.resizable(False, False)  # Disabled resizing of the window
 
 # Load image for splash screen
-image_path = "images/clg_logo.jpg"  # Change this to your image path
+image_path = "images/clg_logo.jpg"  # image path
 image = Image.open(image_path)
 image = image.resize((200, 200))  # Resize the image
 photo = ImageTk.PhotoImage(image)
